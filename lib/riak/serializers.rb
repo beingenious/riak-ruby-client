@@ -47,7 +47,7 @@ module Riak
       extend self
 
       def dump(object)
-        object.to_json(Riak.json_options)
+        Riak::JSON::encode(object)
       end
 
       def load(string)

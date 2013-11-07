@@ -196,7 +196,7 @@ module Riak
     def to_json(*a)
       hash = {"inputs" => inputs, "query" => query.map(&:as_json)}
       hash['timeout'] = @timeout.to_i if @timeout
-      hash.to_json(*a)
+      Riak::JSON::encode(hash)
     end
 
     # Executes this map-reduce job.
