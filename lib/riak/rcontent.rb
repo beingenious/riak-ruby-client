@@ -117,6 +117,7 @@ module Riak
     # * Marshal (application/x-ruby-marshal)
     # @param [String] body the serialized response body
     def deserialize(body)
+      return nil if @content_type.nil?
       Serializers.deserialize(@content_type, body)
     end
 
